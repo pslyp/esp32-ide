@@ -4,6 +4,7 @@ html(lang='en')
     head
         meta(charset='utf-8')
         title= pageTitle
+        link(rel='stylesheet', href='css/main.css')
 
         // Default Blocks
         script(src='blockly/blockly_compressed.js')
@@ -13,14 +14,18 @@ html(lang='en')
 
         // Custom Blocks
         script(src='blockly/customs/blocks-string.js')
-        script(src='blockly/customs/generators-string.js')
+        script(src='blockly/customs/generators-string.js')  
     body
-        // Area
-        div#blocklyDiv(style='height: 480px; width: 600px;')
+        // Blockly Area
+        table
+            tbody
+                tr
+                    td#blocklyArea
+        #blocklyDiv(style='position: absolute')
 
         // Toolbox
         xml#toolbox(style='display: none')
-            category(name='Demo')
+            category(name='Demo', colour='210')
                 block(type='controls_if')
                 block(type='controls_repeat_ext')
                 block(type='logic_compare')
@@ -50,6 +55,34 @@ html(lang='en')
                 block(type='math_random_int')
                 block(type='math_random_float')
                 block(type='math_atan2')
+            category(name='Text')
+                block(type='text')
+                block(type='text_print')
+                block(type='text_multiline')
+                block(type='text_join')
+                block(type='text_create_join_container')
+                block(type='text_create_join_item')
+                block(type='text_append')
+                block(type='text_length')
+                block(type='text_isEmpty')
+                block(type='text_indexOf')
+                block(type='text_charAt')
+            category(name='Lists')
+                block(type='lists_create_empty')
+                block(type='lists_repeat')
+                block(type='lists_reverse')
+                block(type='lists_isEmpty')
+                block(type='lists_length')
+            category(name='Colour')
+                block(type='colour_picker')
+                block(type='colour_random')
+                block(type='colour_rgb')
+                block(type='colour_blend')
+            category(name='Variables')
+                block(type='variables_get')
+                block(type='variables_set')
+                block(type='variables_get_dynamic')
+                block(type='variables_set_dynamic')
             category(name='Custom')
                 block(type='string_hello_world')
 
